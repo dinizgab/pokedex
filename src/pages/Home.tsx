@@ -34,7 +34,7 @@ export default function Home() {
   function getPokemons(): Array<string> {
     let endpoints: Array<string> = [];
 
-    for (let i: number = 1; i < 10; i++) {
+    for (let i: number = 1; i < 152; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     }
     return endpoints;
@@ -43,10 +43,9 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      {console.log(pokemons)}
-      <div className="grid grid-cols-4 gap-x-4 gap-y-4 px-8">
+      <div className="grid grid-cols-5 gap-x-4 gap-y-4 px-8 justify-items-center">
         {pokemons.map((pokemon) => (
-          <PokemonCard key={pokemon.id} name={pokemon.name} />
+          <PokemonCard key={pokemon.id} id={pokemon.id} name={pokemon.name} img={pokemon.sprite} types={pokemon.types}/>
         ))}
       </div>
     </>
