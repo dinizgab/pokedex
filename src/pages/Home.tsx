@@ -4,25 +4,49 @@ import NavBar from "../components/NavBar";
 import PokemonCard from "../components/PokemonCard";
 
 interface PokemonInterface {
+  id: number;
   name: string;
-  url: string;
+  sprite: string;
+  types: Array<Object>;
 }
 
 export default function Home() {
   const [pokemons, setPokemons] = useState<Array<PokemonInterface>>([]);
 
   useEffect(() => {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon?limit=151")
-      .then((res) => setPokemons(res.data.results));
+    const endpoints: Array<string> = getPokemons();
+    axios.all(
+      endpoints.map((endpoint) => {
+        axios.get(endpoint).then((res) => {
+          let pokemon = {
+            id: res.data.id,
+            name: res.data.name,
+            sprite: res.data.sprites.front_default,
+            types: res.data.types,
+          };
+
+          setPokemons((pokemons) => [pokemon, ...pokemons]);
+        });
+      })
+    );
   }, []);
+
+  function getPokemons(): Array<string> {
+    let endpoints: Array<string> = [];
+
+    for (let i: number = 1; i < 10; i++) {
+      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+    }
+    return endpoints;
+  }
 
   return (
     <>
       <NavBar />
+      {console.log(pokemons)}
       <div className="grid grid-cols-4 gap-x-4 gap-y-4 px-8">
         {pokemons.map((pokemon) => (
-          <PokemonCard key={pokemon.name} name={pokemon.name} />
+          <PokemonCard key={pokemon.id} name={pokemon.name} />
         ))}
       </div>
     </>
