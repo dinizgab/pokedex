@@ -1,4 +1,4 @@
-enum TypeColours {
+export enum BackgroundTypeColours {
   normal = "bg-[#a8a878]",
   fighting = "bg-[#c03028]",
   flying = "bg-[#a890f0]",
@@ -19,4 +19,44 @@ enum TypeColours {
   fairy = "bg-[#ee99ac]",
 }
 
-export default TypeColours
+export enum TextTypeColours {
+  normal = "text-[#a8a878]",
+  fighting = "text-[#c03028]",
+  flying = "text-[#a890f0]",
+  poison = "text-[#a040a0]",
+  ground = "text-[#e0c068]",
+  rock = "text-[#b8a038]",
+  bug = "text-[#a8b820]",
+  ghost = "text-[#705898]",
+  steel = "text-[#b8b8d0]",
+  fire = "text-[#f08030]",
+  water = "text-[#6890f0]",
+  grass = "text-[#78c850]",
+  electric = "text-[#f8d030]",
+  psychic = "text-[#f85888]",
+  ice = "text-[#98d8d8]",
+  dragon = "text-[#7038f8]",
+  dark = "text-[#705848]",
+  fairy = "text-[#ee99ac]",
+}
+
+export enum TextDarkTypeColours {
+  normal = "text-[#6D6D4E]",
+  fighting = "text-[#7D1F1A]",
+  flying = "text-[#6D5E9C]",
+  poison = "text-[#a040a0]",
+  ground = "text-[#927D44]",
+  rock = "text-[#786824]",
+  bug = "text-[#6D7815]",
+  ghost = "text-[#493963]",
+  steel = "text-[#787887]",
+  fire = "text-[#9C531F]",
+  water = "text-[#445E9C]",
+  grass = "text-[#4E8234]",
+  electric = "text-[#A1871F]",
+  psychic = "text-[#A13959]",
+  ice = "text-[#638D8D]",
+  dragon = "text-[#4924A1]",
+  dark = "text-[#682A68]",
+  fairy = "text-[#9B6470]",
+}
