@@ -3,10 +3,13 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      scale: {
+        115: "1.15",
+      },
 
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif']
-      }
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],
