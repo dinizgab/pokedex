@@ -60,3 +60,24 @@ export enum TextDarkTypeColours {
   dark = "text-[#682A68]",
   fairy = "text-[#9B6470]",
 }
+
+export enum ShadowTypeColours {
+  normal = "hover:shadow-[#a8a878]",
+  fighting = "hover:shadow-[#c03028]",
+  flying = "hover:shadow-[#a890f0]",
+  poison = "hover:shadow-[#a040a0]",
+  ground = "hover:shadow-[#e0c068]",
+  rock = "hover:shadow-[#b8a038]",
+  bug = "hover:shadow-[#a8b820]",
+  ghost = "hover:shadow-[#705898]",
+  steel = "hover:shadow-[#b8b8d0]",
+  fire = "hover:shadow-[#f08030]",
+  water = "hover:shadow-[#6890f0]",
+  grass = "hover:shadow-[#78c850]",
+  electric = "hover:shadow-[#f8d030]",
+  psychic = "hover:shadow-[#f85888]",
+  ice = "hover:shadow-[#98d8d8]",
+  dragon = "hover:shadow-[#7038f8]",
+  dark = "hover:shadow-[#705848]",
+  fairy = "hover:shadow-[#ee99ac]",
+}

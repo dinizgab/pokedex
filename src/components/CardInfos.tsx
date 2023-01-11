@@ -13,7 +13,7 @@ export default function CardInfos(props: CardInfosProps) {
 
   return (
     <div className="w-100% h-28 z-40 bg-white/[.88] absolute bottom-0 left-0 right-0 flex flex-col items-center justify-center rounded-b-lg">
-      <h1 className="text-4xl font-poppins font-bold tracking-wider">
+      <h1 className="text-[#1c1455] text-4xl font-poppins font-bold tracking-wider">
         {capitalizeFist(props.name)}
       </h1>
       {props.types.map((type) => (
