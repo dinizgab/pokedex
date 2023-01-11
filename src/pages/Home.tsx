@@ -7,12 +7,7 @@ interface PokemonInterface {
   id: number;
   name: string;
   sprite: string;
-  types: Array<{
-    type: {
-      name: string;
-      url: string;
-    };
-  }>;
+  types: Array<string>;
   principalTypeColor: string;
 }
 
@@ -28,7 +23,7 @@ export default function Home() {
             id: res.data.id,
             name: res.data.name,
             sprite: res.data.sprites.front_default,
-            types: res.data.types,
+            types: res.data.types.map((obj: { type: { name: string; }; }) => obj.type.name),
             principalTypeColor: res.data.types[0].type.name,
           };
           setPokemons((pokemons) => [pokemon, ...pokemons]);
@@ -49,7 +44,7 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <div className="grid grid-cols-3 gap-x-24 gap-y-16 px-12 justify-items-center">
+      <div className="grid grid-cols-3 gap-x-16 gap-y-12 px-12 pt-8 justify-items-center bg-slate-300">
         {pokemons.map((pokemon) => (
           <PokemonCard
             key={pokemon.id}
@@ -57,7 +52,6 @@ export default function Home() {
             name={pokemon.name}
             img={pokemon.sprite}
             types={pokemon.types}
-            typeColor={pokemon.principalTypeColor.toUpperCase()}
           />
         ))}
       </div>
