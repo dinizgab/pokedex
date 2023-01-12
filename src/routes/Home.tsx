@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import PokemonCard from "../components/PokemonCard";
 
@@ -18,13 +19,15 @@ export default function Home() {
     const endpoints: Array<string> = getPokemons();
     axios.all(
       endpoints.map((endpoint) => {
-        axios.get(endpoint).then((res) => {
+        axios.get(endpoint).then(({data}) => {
           let pokemon = {
-            id: res.data.id,
-            name: res.data.name,
-            sprite: res.data.sprites.front_default,
-            types: res.data.types.map((obj: { type: { name: string; }; }) => obj.type.name),
-            principalTypeColor: res.data.types[0].type.name,
+            id: data.id,
+            name: data.name,
+            sprite: data.sprites.front_default,
+            types: data.types.map(
+              (obj: { type: { name: string } }) => obj.type.name
+            ),
+            principalTypeColor: data.types[0].type.name,
           };
           setPokemons((pokemons) => [pokemon, ...pokemons]);
         });
@@ -55,6 +58,7 @@ export default function Home() {
           />
         ))}
       </div>
+      <Outlet />
     </>
   );
 }
