@@ -3,7 +3,7 @@ import {
   BackgroundTypeColours,
   TextDarkTypeColours,
   ShadowTypeColours,
-} from "../utils/TypeColours";
+} from "../utils/TypeColoursInterfaces";
 import { Link } from "react-router-dom";
 
 interface PokemonCardProps {

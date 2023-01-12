@@ -1,5 +1,5 @@
 import { AbilityInterface } from "../utils/AbilityInterface";
-import { BackgroundTypeColours } from "../utils/TypeColours";
+import { BackgroundTypeColours } from "../utils/TypeColoursInterfaces";
 
 interface PokemonProfileProps {
   id: number;
@@ -13,7 +13,7 @@ interface PokemonProfileProps {
 
 export default function PokemonProfile(props: PokemonProfileProps) {
   return (
-    <div className="flex py-12">
+    <div className="flex p-12 bg-[#F0EFEE]">
       <img
         className={` ${
           BackgroundTypeColours[

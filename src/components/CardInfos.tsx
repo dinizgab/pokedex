@@ -1,4 +1,4 @@
-import { TextTypeColours } from "../utils/TypeColours";
+import { TextTypeColours } from "../utils/TypeColoursInterfaces";
 
 interface CardInfosProps {
   name: string;

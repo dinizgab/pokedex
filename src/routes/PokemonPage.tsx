@@ -5,7 +5,6 @@ import NavBar from "../components/NavBar";
 import PokemonProfile from "../components/PokemonProfile";
 import { PokemonInterface } from "../utils/PokemonInterface";
 
-
 export default function PokemonPage() {
   const { pokemonId } = useParams();
   const [pokemon, setPokemon] = useState<PokemonInterface>({
@@ -40,26 +39,23 @@ export default function PokemonPage() {
 
         setPokemon(pokemon);
       });
-  }
- 
+  };
+
   useEffect(() => {
-    getPokemon()
+    getPokemon();
   }, [pokemonId]);
-  
+
   return (
     <>
-      <NavBar />
-      <div className="px-12 bg-[#F0EFEE]">
-        <PokemonProfile
-          id={pokemon.id}
-          name={pokemon.name}
-          sprite={pokemon.sprite}
-          types={pokemon.types}
-          height={pokemon.height!}
-          weight={pokemon.height!}
-          abilities={pokemon.abilities!}
-        />
-      </div>
+      <PokemonProfile
+        id={pokemon.id}
+        name={pokemon.name}
+        sprite={pokemon.sprite}
+        types={pokemon.types}
+        height={pokemon.height!}
+        weight={pokemon.height!}
+        abilities={pokemon.abilities!}
+      />
     </>
   );
 }

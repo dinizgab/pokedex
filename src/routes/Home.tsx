@@ -37,8 +37,7 @@ export default function Home() {
 
   return (
     <>
-      <NavBar />
-      <div className="w-full grid grid-cols-1 gap-y-12 px-12 pt-12 justify-items-center bg-[#F0EFEE] md:grid-cols-2 md:gap-x-16 lg:grid-cols-3">
+      <div className="w-full grid grid-cols-1 gap-y-12 p-12 justify-items-center bg-[#F0EFEE] md:grid-cols-2 md:gap-x-16 lg:grid-cols-3">
         {pokemons.map((pokemon) => (
           <PokemonCard
             key={pokemon.id}
@@ -49,7 +48,6 @@ export default function Home() {
           />
         ))}
       </div>
-      <Outlet />
     </>
   );
 }

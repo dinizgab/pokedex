@@ -1,18 +1,22 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./routes/Home";
 import PokemonPage from "./routes/PokemonPage";
-import PokemonCard from "./components/PokemonCard";
+import Root from "./routes/Root";
+import Home from "./routes/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Root />,
     children: [
       {
+        path: "/",
+        element: <Home />,
+      },
+      {
         path: "/pokemon/:pokemonId",
-        element: <PokemonPage/>,
+        element: <PokemonPage />,
       },
     ],
   },
