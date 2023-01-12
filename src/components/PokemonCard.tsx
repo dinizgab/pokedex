@@ -28,7 +28,7 @@ export default function PokemonCard(props: PokemonCardProps) {
         <img
           src={props.img}
           alt={props.name}
-          className="h-full z-40 hover:scale-115 duration-200"
+          className="h-full z-40 hover:scale-105 duration-200"
         />
         <CardInfos name={props.name} id={props.id} types={props.types} />
 
