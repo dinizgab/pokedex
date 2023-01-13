@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import PokemonCard from "../components/PokemonCard";
 import { PokemonInterface } from "../utils/PokemonInterface";
@@ -20,7 +19,7 @@ export default function Home() {
           let pokemon = {
             id: data.id,
             name: data.name,
-            sprite: data.sprites.front_default,
+            sprite: data.sprites.other["official-artwork"].front_default,
             types: data.types.map(
               (obj: { type: { name: string } }) => obj.type.name
             ),
@@ -37,7 +36,8 @@ export default function Home() {
 
   return (
     <>
-      <div className="w-full grid grid-cols-1 gap-y-12 p-12 justify-items-center bg-[#F0EFEE] md:grid-cols-2 md:gap-x-16 lg:grid-cols-3">
+      <NavBar isProfile={false} />
+      <section className="w-full grid grid-cols-1 gap-y-12 p-12 justify-items-center bg-[#F0EFEE] md:grid-cols-2 md:gap-x-16 lg:grid-cols-3">
         {pokemons.map((pokemon) => (
           <PokemonCard
             key={pokemon.id}
@@ -47,7 +47,7 @@ export default function Home() {
             types={pokemon.types}
           />
         ))}
-      </div>
+      </section>
     </>
   );
 }

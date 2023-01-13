@@ -1,10 +1,21 @@
+import { Link } from "react-router-dom";
 import Search from "./Search";
 
-export default function NavBar() {
+interface NavBarProps {
+  isProfile: boolean;
+}
+
+export default function NavBar(props: NavBarProps) {
   return (
-    <div className="w-full h-24 p-12 py-2 bg-[#E2330C] flex flex-col items-center justify-between sm:flex-row">
-      <h1 className="text-white text-2xl md:text-3xl">Pokedex</h1>
-      <Search />
-    </div>
+    <header
+      className={`w-full h-24 p-12 py-2 bg-[#E2330C] flex flex-col items-center ${
+        props.isProfile ? "justify-center" : "justify-between"
+      } sm:flex-row`}
+    >
+      <Link to="/">
+        <h1 className="text-white text-2xl md:text-3xl">Pokedex</h1>
+      </Link>
+      {props.isProfile ? <></> : <Search />}
+    </header>
   );
 }

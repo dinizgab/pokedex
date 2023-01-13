@@ -24,7 +24,7 @@ export default function PokemonPage() {
         let pokemon = {
           id: data.id,
           name: data.name,
-          sprite: data.sprites.front_default,
+          sprite: data.sprites.other["official-artwork"].front_default,
           types: data.types.map(
             (obj: { type: { name: string } }) => obj.type.name
           ),
@@ -47,6 +47,7 @@ export default function PokemonPage() {
 
   return (
     <>
+      <NavBar isProfile={true} />
       <PokemonProfile
         id={pokemon.id}
         name={pokemon.name}
