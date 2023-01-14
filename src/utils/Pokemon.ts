@@ -9,5 +9,5 @@ export type Pokemon = {
   weight?: number;
   abilities?: Array<Ability>;
   animatedSprite?: string;
-  stats?: Array<{ base: number; statName: string }>;
+  stats?: Array<{ statName: string; baseStat: number }>;
 };

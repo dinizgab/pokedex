@@ -12,7 +12,9 @@ module.exports = {
       },
       
       gridTemplateRows: {
-        "pokemon-page": "10vh 90vh"
+        "pokemon-page": "10vh 90vh",
+        "stats-info": "10% 90%",
+        "pokemon-profile": "15% 85%"
       }
     },
   },

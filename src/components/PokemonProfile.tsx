@@ -1,17 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, Outlet, useOutletContext } from "react-router-dom";
+import { capitalizeFist } from "../utils/capitalizeFirst";
 import { Pokemon } from "../utils/Pokemon";
 import {
   BackgroundTypeColours,
   TextDarkTypeColours,
 } from "../utils/TypeColoursInterfaces";
 
-interface PokemonProfilepokemon {
+interface PokemonProfileProps {
   pokemonId: string;
 }
 
-export default function PokemonProfile(props: PokemonProfilepokemon) {
+export default function PokemonProfile(props: PokemonProfileProps) {
   const [pokemon, setPokemon] = useState<Pokemon>({
     id: 0,
     name: "",
@@ -61,7 +62,7 @@ export default function PokemonProfile(props: PokemonProfilepokemon) {
 
         fetchPokemon.stats = data.stats.map(
           (stat: { stat: { name: string }; base_stat: number }) => {
-            return { string: stat.stat.name, number: stat.base_stat };
+            return { statName: stat.stat.name, baseStat: stat.base_stat };
           }
         );
 
@@ -72,10 +73,6 @@ export default function PokemonProfile(props: PokemonProfilepokemon) {
   useEffect(() => {
     getPokemon();
   }, []);
-
-  const capitalizeFist = (name: string): string => {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-  };
 
   return (
     <section className="flex justify-center p-32 bg-[#F0EFEE]">
@@ -111,8 +108,8 @@ export default function PokemonProfile(props: PokemonProfilepokemon) {
             {capitalizeFist(pokemon.name)}
           </span>
         </div>
-        <div className="w-1/2 bg-[#FEFCFE]/70 rounded-r-xl shadow-lg">
-          <div className="w-full py-8 flex justify-around font-poppins text-[1.1rem] font-semibold">
+        <div className="w-1/2 bg-[#FEFCFE]/70 rounded-r-xl shadow-lg grid grid-rows-pokemon-profile">
+          <div className="w-full py-8 flex items-center justify-around font-poppins text-[1.1rem] font-semibold">
             <Link to={`/pokemon/${props.pokemonId}`}>Biography</Link>
             <Link to={`/pokemon/${props.pokemonId}/stats`}>Stats</Link>
             <Link to={`/pokemon/${props.pokemonId}/evolutions`}>Evolutions</Link>
@@ -124,6 +121,6 @@ export default function PokemonProfile(props: PokemonProfilepokemon) {
   );
 }
 
-export function usePokemonStats() {
+export function usePokemonInfos() {
   return useOutletContext<Pokemon>();
 }
