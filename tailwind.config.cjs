@@ -10,6 +10,10 @@ module.exports = {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
+      
+      gridTemplateRows: {
+        "pokemon-page": "10vh 90vh"
+      }
     },
   },
   plugins: [],

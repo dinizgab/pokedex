@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import PokemonCard from "../components/PokemonCard";
-import { PokemonInterface } from "../utils/PokemonInterface";
+import { PokemonInterface } from "../utils/Pokemon";
 
 export default function Home() {
   const [pokemons, setPokemons] = useState<Array<PokemonInterface>>([]);
