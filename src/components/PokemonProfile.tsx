@@ -41,7 +41,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${props.pokemonId}/`)
       .then(({ data }) => {
-          (fetchPokemon.id = data.id),
+        (fetchPokemon.id = data.id),
           (fetchPokemon.name = data.name),
           (fetchPokemon.sprite =
             data.sprites.other["official-artwork"].front_default),
@@ -62,10 +62,13 @@ export default function PokemonProfile(props: PokemonProfileProps) {
 
         fetchPokemon.stats = data.stats.map(
           (stat: { stat: { name: string }; base_stat: number }) => {
-            return { statName: stat.stat.name, baseStat: stat.base_stat };
+            return {
+              statName: stat.stat.name,
+              statValue: stat.base_stat,
+            };
           }
         );
-
+        console.log(data);
         setPokemon(fetchPokemon);
       });
   };
@@ -112,9 +115,18 @@ export default function PokemonProfile(props: PokemonProfileProps) {
           <div className="w-full py-8 flex items-center justify-around font-poppins text-[1.1rem] font-semibold">
             <Link to={`/pokemon/${props.pokemonId}`}>Biography</Link>
             <Link to={`/pokemon/${props.pokemonId}/stats`}>Stats</Link>
-            <Link to={`/pokemon/${props.pokemonId}/evolutions`}>Evolutions</Link>
+            <Link to={`/pokemon/${props.pokemonId}/evolutions`}>
+              Evolutions
+            </Link>
           </div>
-            <Outlet context={{name: pokemon.name, animatedSprite: pokemon.animatedSprite, stats: pokemon.stats}}/>
+          <Outlet
+            context={{
+              name: pokemon.name,
+              animatedSprite: pokemon.animatedSprite,
+              stats: pokemon.stats,
+              types: pokemon.types,
+            }}
+          />
         </div>
       </div>
     </section>

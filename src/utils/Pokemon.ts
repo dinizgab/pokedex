@@ -1,4 +1,5 @@
 import { Ability } from "./Ability";
+import { Stat } from "./Stat";
 
 export type Pokemon = {
   id: number;
@@ -9,5 +10,5 @@ export type Pokemon = {
   weight?: number;
   abilities?: Array<Ability>;
   animatedSprite?: string;
-  stats?: Array<{ statName: string; baseStat: number }>;
+  stats?: Array<Stat>;
 };
