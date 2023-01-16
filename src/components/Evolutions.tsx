@@ -1,31 +1,28 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import EvolutionCard from "./EvolutionCard";
 import { usePokemonInfos } from "./PokemonProfile";
 
 export default function Evolutions() {
   const { id } = usePokemonInfos();
-  const [evolutionsURL, setEvolutionsURL] = useState<Array<string>>([]);
+  const [evolutionsURL, setEvolutionsURL] = useState<string[]>([]);
 
   const getEvolutions = (chain) => {
     let current = chain;
-    console.log(current);
     const urls = [];
 
-    while (current.evolves_to.length > 0) {
+    while (current.evolves_to.length > 0) {   
       if (current.evolves_to.length === 1) {
         urls.push(`https://pokeapi.co/api/v2/pokemon/${current.species.name}/`);
       } else {
-        current.evolves_to.forEach((evol) =>
-          urls.push(`https://pokeapi.co/api/v2/pokemon/${evol.species.name}/`)
-        );
+        current.evolves_to.forEach(evol => urls.push(`https://pokeapi.co/api/v2/pokemon/${evol.species.name}/`))
       }
 
       current = current.evolves_to[0];
     }
 
     urls.push(`https://pokeapi.co/api/v2/pokemon/${current.species.name}/`);
-
-    setEvolutionsURL(urls);
+    setEvolutionsURL(urls); 
   };
 
   useEffect(() => {
@@ -39,9 +36,9 @@ export default function Evolutions() {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-wrap justify-center items-center">
       {evolutionsURL.map((url) => (
-        <div key={url}>{url}</div>
+        <EvolutionCard pokemonEvolution={url} key={url}/>
       ))}
     </div>
   );

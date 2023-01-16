@@ -1,5 +1,4 @@
-import { capitalizeFist } from "../utils/capitalizeFirst";
-import { TextTypeColours } from "../utils/TypeColoursInterfaces";
+import { TextTypeColours } from "../types/TypeColoursInterfaces";
 
 interface CardInfosProps {
   name: string;
@@ -11,7 +10,7 @@ export default function CardInfos(props: CardInfosProps) {
   return (
     <div className="w-100% h-28 z-40 bg-white/[.88] absolute bottom-0 left-0 right-0 flex flex-col items-center justify-center rounded-b-lg">
       <h1 className="text-[#1c1455] text-3xl font-poppins font-bold tracking-wider">
-        {capitalizeFist(props.name)}
+        {props.name.replace(/^\w/, (c) => c.toUpperCase())}
       </h1>
       {props.types.map((type) => (
         <span

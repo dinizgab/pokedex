@@ -1,4 +1,4 @@
-import { BackgroundTypeColours } from "../utils/TypeColoursInterfaces";
+import { BackgroundTypeColours } from "../types/TypeColoursInterfaces";
 
 interface StatPercentageProps {
   typeColor: string;

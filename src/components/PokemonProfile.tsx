@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, Outlet, useOutletContext } from "react-router-dom";
-import { capitalizeFist } from "../utils/capitalizeFirst";
-import { Pokemon } from "../utils/Pokemon";
+import { Pokemon } from "../types/Pokemon";
 import {
   BackgroundTypeColours,
   TextDarkTypeColours,
-} from "../utils/TypeColoursInterfaces";
+} from "../types/TypeColoursInterfaces";
 
 interface PokemonProfileProps {
   pokemonId: string;
@@ -68,7 +67,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
             };
           }
         );
-        
+
         setPokemon(fetchPokemon);
       });
   };
@@ -108,7 +107,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
               ]
             }`}
           >
-            {capitalizeFist(pokemon.name)}
+            {pokemon.name.replace(/^\w/, (c) => c.toUpperCase())}
           </span>
         </div>
         <div className="w-1/2 bg-[#FEFCFE]/70 rounded-r-xl shadow-lg grid grid-rows-pokemon-profile">
