@@ -52,7 +52,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
           (fetchPokemon.weight = data.weight),
           (fetchPokemon.abilities = data.abilities.map(
             (obj: { ability: { name: string }; slot: number }) => {
-              return { string: obj.ability.name, number: obj.slot };
+              return { abilityName: obj.ability.name, abilitySlot: obj.slot };
             }
           )),
           (fetchPokemon.animatedSprite =
@@ -68,7 +68,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
             };
           }
         );
-        console.log(data);
+        
         setPokemon(fetchPokemon);
       });
   };
@@ -112,7 +112,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
           </span>
         </div>
         <div className="w-1/2 bg-[#FEFCFE]/70 rounded-r-xl shadow-lg grid grid-rows-pokemon-profile">
-          <div className="w-full py-8 flex items-center justify-around font-poppins text-[1.1rem] font-semibold">
+          <div className="w-full py-8 flex items-center justify-around font-poppins text-xl font-semibold">
             <Link to={`/pokemon/${props.pokemonId}`}>Biography</Link>
             <Link to={`/pokemon/${props.pokemonId}/stats`}>Stats</Link>
             <Link to={`/pokemon/${props.pokemonId}/evolutions`}>
@@ -121,10 +121,14 @@ export default function PokemonProfile(props: PokemonProfileProps) {
           </div>
           <Outlet
             context={{
+              id: pokemon.id,
               name: pokemon.name,
               animatedSprite: pokemon.animatedSprite,
               stats: pokemon.stats,
               types: pokemon.types,
+              weight: pokemon.weight,
+              height: pokemon.height,
+              abilities: pokemon.abilities,
             }}
           />
         </div>

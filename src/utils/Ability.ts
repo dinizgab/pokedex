@@ -1,4 +1,4 @@
 export type Ability = {
-  name: string;
-  slot: number;
+  abilityName: string;
+  abilitySlot: number;
 }
