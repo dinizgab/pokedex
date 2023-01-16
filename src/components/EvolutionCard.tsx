@@ -5,6 +5,7 @@ import { BackgroundTypeColours } from "../types/TypeColoursInterfaces";
 
 interface EvolutionCardProps {
   pokemonEvolution: string;
+  evolutionChainSize: number
 }
 
 export default function EvolutionCard(props: EvolutionCardProps) {
@@ -17,7 +18,6 @@ export default function EvolutionCard(props: EvolutionCardProps) {
 
   useEffect(() => {
     axios.get(props.pokemonEvolution).then(({ data }) => {
-      console.log(data);
       setEvolutionInfos({
         id: data.id,
         name: data.name,
@@ -28,7 +28,7 @@ export default function EvolutionCard(props: EvolutionCardProps) {
   }, []);
 
   return (
-    <Link className="w-1/3 m-4 rounded-full" to={`/pokemon/${evolutionInfos.id}`}>
+    <Link className={`${props.evolutionChainSize > 3 ? "w-1/5" : "w-1/3"} m-3 rounded-full`} to={`/pokemon/${evolutionInfos.id}`}>
       <div
         className={`p-6 rounded-full ${
           BackgroundTypeColours[
@@ -39,7 +39,7 @@ export default function EvolutionCard(props: EvolutionCardProps) {
         <img src={evolutionInfos.sprite} alt={evolutionInfos.name} />
       </div>
       <h1 className="mt-[.2rem] text-center text-xl font-poppins font-semibold tracking-wider">
-        #{evolutionInfos.id}{"\n"}
+        #{evolutionInfos.id} {" "}
         {evolutionInfos.name.replace(/^\w/, (c) => c.toUpperCase())}
       </h1>
     </Link>
