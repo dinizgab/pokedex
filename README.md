@@ -28,10 +28,9 @@
 
 # Installation and Deployment
 You can access the page with this link:
+- https://pokedex-tau-one.vercel.app/
 
-Or
-
-You can clone the repository and run it locally with:
+or you can clone the repository and run it locally with:
 ```
 git clone https://github.com/dinizgab/pokedex
 cd pokedex
