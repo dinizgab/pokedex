@@ -35,7 +35,7 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <div className="grid grid-rows-pokemon-page">
       <NavBar isProfile={false} />
       <section className="w-full grid grid-cols-1 gap-y-12 p-12 justify-items-center bg-[#F0EFEE] md:grid-cols-2 md:gap-x-16 lg:grid-cols-3">
         {pokemons.map((pokemon) => (
@@ -48,6 +48,6 @@ export default function Home() {
           />
         ))}
       </section>
-    </>
+    </div>
   );
 }

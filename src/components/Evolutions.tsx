@@ -7,7 +7,7 @@ export default function Evolutions() {
   const { id } = usePokemonInfos();
   const [evolutionsURL, setEvolutionsURL] = useState<string[]>([]);
 
-  const getEvolutions = (chain) => {
+  const getEvolutions = (chain: any) => {
     let current = chain;
     const urls = [];
 
@@ -15,7 +15,7 @@ export default function Evolutions() {
       if (current.evolves_to.length === 1) {
         urls.push(`https://pokeapi.co/api/v2/pokemon/${current.species.name}/`);
       } else {
-        current.evolves_to.forEach((evol) =>
+        current.evolves_to.forEach((evol: any) =>
           urls.push(`https://pokeapi.co/api/v2/pokemon/${evol.species.name}/`)
         );
       }

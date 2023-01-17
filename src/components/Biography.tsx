@@ -66,7 +66,7 @@ export function Biography() {
                 {key.replace(/^\w/, (c) => c.toUpperCase())}
               </span>
               <span className="text-[#2b2c2c] w-1/3">
-                {infosMapTemplate[key]}
+                {infosMapTemplate[key as keyof typeof infosMapTemplate]}
               </span>
             </div>
           ))}

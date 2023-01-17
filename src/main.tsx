@@ -32,7 +32,6 @@ const router = createBrowserRouter([
           {
             path: "/pokemon/:pokemonId/evolutions",
             element: <Evolutions/>,
-            
           }
         ]
       },
