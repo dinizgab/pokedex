@@ -77,8 +77,8 @@ export default function PokemonProfile(props: PokemonProfileProps) {
   }, []);
 
   return (
-    <section className="flex p-20 bg-[#F0EFEE] lg:p-32">
-      <div className="flex flex-col mx-auto w-3/4 lg:w-2/3 lg:flex-row">
+    <section className="flex p-12 bg-[#F0EFEE] lg:p-32">
+      <div className="flex flex-col mx-auto w-full lg:w-2/3 lg:flex-row">
         <div
           className={`rounded-t-xl p-10 ${
             BackgroundTypeColours[
@@ -92,7 +92,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
             alt={pokemon.name}
           />
           <span
-            className={`absolute text-3xl top-6 z-10 font-poppins font-semibold ${
+            className={`absolute text-[1.5rem] lg:text-3xl left-5 top-3 lg:top-6 z-10 font-poppins font-semibold ${
               TextDarkTypeColours[
                 pokemon.types[0] as keyof typeof TextDarkTypeColours
               ]
@@ -101,7 +101,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
             #{pokemon.id}
           </span>
           <span
-            className={`absolute text-[5rem] top-8 z-10 font-poppins font-bold ${
+            className={`absolute text-[2rem] lg:text-[5rem] left-5 top-8 lg:top-8 z-10 font-poppins font-bold ${
               TextDarkTypeColours[
                 pokemon.types[0] as keyof typeof TextDarkTypeColours
               ]
@@ -110,8 +110,8 @@ export default function PokemonProfile(props: PokemonProfileProps) {
             {pokemon.name.replace(/^\w/, (c) => c.toUpperCase())}
           </span>
         </div>
-        <div className="w-full bg-[#FEFCFE]/70 rounded-b-xl shadow-lg grid grid-rows-pokemon-profile lg:w-1/2 lg:rounded-none lg:rounded-r-xl">
-          <div className="w-full py-8 flex items-center justify-around font-poppins text-xl font-semibold">
+        <div className="w-full bg-[#FEFCFE]/70 rounded-b-xl shadow-lg lg:w-1/2 lg:rounded-none lg:rounded-r-xl">
+          <div className="py-4 lg:py-8 flex items-center justify-around font-poppins lg:text-xl font-semibold flex-wrap">
             <Link to={`/pokemon/${props.pokemonId}`}>Biography</Link>
             <Link to={`/pokemon/${props.pokemonId}/stats`}>Stats</Link>
             <Link to={`/pokemon/${props.pokemonId}/evolutions`}>

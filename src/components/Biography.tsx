@@ -54,25 +54,26 @@ export function Biography() {
         alt={`${name} gif`}
         className="w-1/4 h-full justify-self-center"
       ></img>
-      <div className="w-full px-16  font-poppins">
-        <h1 className="text-center font-bold text-2xl text-[#474949]">Pokemon Data</h1>
-        <p className="lg:y-0 text-[#6b6d6e] text-center self-center">
+
+      <div className="w-full px-3 lg:px-16  font-poppins">
+        <h1 className="text-center font-bold lg:text-2xl text-[#474949]">Pokemon Data</h1>
+        <p className="lg:my-0 text-[#6b6d6e] text-center text-sm lg:text-base">
           {pokemonBiography}
         </p>
-        <div className="text-[#6b6d6e] w-full">
+        <div className="text-[#6b6d6e] w-full text-sm lg:text-base">
           {Object.keys(infosMapTemplate).map((key) => (
             <div key={key} className="m-2 flex justify-between">
               <span className="w-1/4">
                 {key.replace(/^\w/, (c) => c.toUpperCase())}
               </span>
-              <span className="text-[#2b2c2c] w-1/3">
+              <span className="text-[#2b2c2c] w-1/3 lg:text-base">
                 {infosMapTemplate[key as keyof typeof infosMapTemplate]}
               </span>
             </div>
           ))}
           <div className="m-2 flex justify-between">
             <span className="w-1/4">Abilities</span>
-            <span className="flex flex-col w-1/3">
+            <span className="flex flex-col w-1/3 text-sm lg:text-base">
               {abilities!.map((ability) => (
                 <div className="text-[#2b2c2c]" key={ability.abilityName}>
                   {" "}
