@@ -28,7 +28,7 @@
 
 # Installation and Deployment
 You can access the page with this link:
-- https://pokedex-tau-one.vercel.app/
+- https://pokedex-dinizgab.vercel.app/
 
 or you can clone the repository and run it locally with:
 ```
