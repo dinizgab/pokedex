@@ -6,7 +6,7 @@ export default function PokemonPage() {
   const { pokemonId } = useParams();
 
   return (
-    <div className="grid grid-rows-pokemon-page">
+    <div className="grid">
       <NavBar isProfile={true} />
       <PokemonProfile
         pokemonId={pokemonId!}

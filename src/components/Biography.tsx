@@ -48,20 +48,20 @@ export function Biography() {
   });
 
   return (
-    <div className="grid grid-rows-pokemon-biography w-full">
+    <div className="grid w-full">
       <img
         src={animatedSprite}
         alt={`${name} gif`}
         className="w-1/4 h-full justify-self-center"
       ></img>
-      <div className="grid grid-rows-pokemon-biography-infos justify-items-center w-full px-16 py-8 font-poppins">
-        <h1 className="font-bold text-2xl text-[#474949]">Pokemon Data</h1>
-        <div className="text-[#6b6d6e] text-center self-center">
+      <div className="w-full px-16  font-poppins">
+        <h1 className="text-center font-bold text-2xl text-[#474949]">Pokemon Data</h1>
+        <p className="lg:y-0 text-[#6b6d6e] text-center self-center">
           {pokemonBiography}
-        </div>
+        </p>
         <div className="text-[#6b6d6e] w-full">
           {Object.keys(infosMapTemplate).map((key) => (
-            <div key={key} className="px-2 py-2 flex justify-between">
+            <div key={key} className="m-2 flex justify-between">
               <span className="w-1/4">
                 {key.replace(/^\w/, (c) => c.toUpperCase())}
               </span>
@@ -70,7 +70,7 @@ export function Biography() {
               </span>
             </div>
           ))}
-          <div className="px-2 py-2 flex justify-between">
+          <div className="m-2 flex justify-between">
             <span className="w-1/4">Abilities</span>
             <span className="flex flex-col w-1/3">
               {abilities!.map((ability) => (

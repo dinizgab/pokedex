@@ -77,14 +77,14 @@ export default function PokemonProfile(props: PokemonProfileProps) {
   }, []);
 
   return (
-    <section className="flex justify-center p-32 bg-[#F0EFEE]">
-      <div className="flex w-3/4">
+    <section className="flex p-20 bg-[#F0EFEE] lg:p-32">
+      <div className="flex flex-col mx-auto w-3/4 lg:w-2/3 lg:flex-row">
         <div
-          className={`rounded-l-xl p-10 ${
+          className={`rounded-t-xl p-10 ${
             BackgroundTypeColours[
               pokemon.types[0] as keyof typeof BackgroundTypeColours
             ]
-          } w-1/2 relative flex justify-start z-0 shadow-lg `}
+          } w-full relative flex justify-start z-0 lg:shadow-lg lg:w-1/2 lg:rounded-l-xl lg:rounded-none`}
         >
           <img
             className="z-20 w-full"
@@ -110,7 +110,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
             {pokemon.name.replace(/^\w/, (c) => c.toUpperCase())}
           </span>
         </div>
-        <div className="w-1/2 bg-[#FEFCFE]/70 rounded-r-xl shadow-lg grid grid-rows-pokemon-profile">
+        <div className="w-full bg-[#FEFCFE]/70 rounded-b-xl shadow-lg grid grid-rows-pokemon-profile lg:w-1/2 lg:rounded-none lg:rounded-r-xl">
           <div className="w-full py-8 flex items-center justify-around font-poppins text-xl font-semibold">
             <Link to={`/pokemon/${props.pokemonId}`}>Biography</Link>
             <Link to={`/pokemon/${props.pokemonId}/stats`}>Stats</Link>
