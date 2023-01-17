@@ -3,8 +3,9 @@
 # Table of contents
 1. [Overview](#overview)
 2. [Techs used](#techs-used)
-4. [Todo](#todo-list)
-3. [Pages](#pages)
+3. [Todo](#todo-list)
+4. [Installation and Deployment](#installation-and-deployment)
+4. [Pages](#pages)
 5. [Adding More Generations](#adding-more-generations)
 
 
@@ -25,7 +26,20 @@
 - Redirect to the pokemon evolution when you click on its photo at evolution page;
 - Search a pokemon (With a live search)
 
-# Pages 
+# Installation and Deployment
+You can access the page with this link:
+
+Or
+
+You can clone the repository and run it locally with:
+```
+git clone https://github.com/dinizgab/pokedex
+cd pokedex
+npm install
+npm run dev
+```
+
+# Pages
 ## Pokemon List Page
 - In the first page, it will show the list of all the pokemons you wanted to list:
 ![PokemonList](/public/list.png) 
