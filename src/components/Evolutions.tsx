@@ -39,7 +39,7 @@ export default function Evolutions() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center items-center">
+    <div className="flex flex-wrap justify-center">
       {evolutionsURL.map((url) => (
         <EvolutionCard
           pokemonEvolution={url}

@@ -28,17 +28,17 @@ export default function EvolutionCard(props: EvolutionCardProps) {
   }, []);
 
   return (
-    <Link className={`${props.evolutionChainSize > 3 ? "w-1/5" : "w-1/3"} m-3 rounded-full`} to={`/pokemon/${evolutionInfos.id}`}>
+    <Link className={`${props.evolutionChainSize > 3 ? "w-[11rem] lg:w-1/5" : "w-1/3"} m-3 rounded-full`} to={`/pokemon/${evolutionInfos.id}`}>
       <div
-        className={`p-6 rounded-full ${
+        className={`lg:p-6 rounded-full ${
           BackgroundTypeColours[
             evolutionInfos.type as keyof typeof BackgroundTypeColours
           ]
         }`}
       >
-        <img src={evolutionInfos.sprite} alt={evolutionInfos.name} />
+        <img src={evolutionInfos.sprite} alt={evolutionInfos.name}/>
       </div>
-      <h1 className="mt-[.2rem] text-center text-xl font-poppins font-semibold tracking-wider">
+      <h1 className="mt-0 lg:mt-[.2rem] text-center text-[1rem] lg:text-xl font-poppins font-semibold tracking-wider">
         #{evolutionInfos.id} {" "}
         {evolutionInfos.name.replace(/^\w/, (c) => c.toUpperCase())}
       </h1>

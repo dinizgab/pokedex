@@ -48,32 +48,32 @@ export function Biography() {
   });
 
   return (
-    <div className="grid w-full">
+    <div className="grid w-full px-6 pb-3">
       <img
         src={animatedSprite}
         alt={`${name} gif`}
         className="w-1/4 h-full justify-self-center"
       ></img>
 
-      <div className="w-full px-3 lg:px-16  font-poppins">
-        <h1 className="text-center font-bold lg:text-2xl text-[#474949]">Pokemon Data</h1>
-        <p className="lg:my-0 text-[#6b6d6e] text-center text-sm lg:text-base">
+      <div className="w-full md:px-16 font-poppins">
+        <h1 className="text-center font-bold md:text-2xl text-[#474949]">Pokemon Data</h1>
+        <p className="md:my-0 text-[#6b6d6e] text-start text-sm md:text-base">
           {pokemonBiography}
         </p>
-        <div className="text-[#6b6d6e] w-full text-sm lg:text-base">
+        <div className="text-[#6b6d6e] w-full text-sm md:text-base">
           {Object.keys(infosMapTemplate).map((key) => (
-            <div key={key} className="m-2 flex justify-between">
-              <span className="w-1/4">
+            <div key={key} className="my-2 flex justify-between">
+              <span className="w-1/2 md:w-1/3">
                 {key.replace(/^\w/, (c) => c.toUpperCase())}
               </span>
-              <span className="text-[#2b2c2c] w-1/3 lg:text-base">
+              <span className="text-[#2b2c2c] w-1/2 md:w-1/3  md:text-base">
                 {infosMapTemplate[key as keyof typeof infosMapTemplate]}
               </span>
             </div>
           ))}
-          <div className="m-2 flex justify-between">
-            <span className="w-1/4">Abilities</span>
-            <span className="flex flex-col w-1/3 text-sm lg:text-base">
+          <div className="my-2 flex justify-between">
+            <span className="w-1/2 md:w-1/3">Abilities</span>
+            <span className="flex flex-col w-1/2 md:w-1/3 text-sm md:text-base">
               {abilities!.map((ability) => (
                 <div className="text-[#2b2c2c]" key={ability.abilityName}>
                   {" "}
