@@ -6,7 +6,7 @@ export default function PokemonPage() {
   const { pokemonId } = useParams();
 
   return (
-    <div>
+    <div className="w-screen h-screen">
       <NavBar isProfile={true} />
       <PokemonProfile
         pokemonId={pokemonId!}

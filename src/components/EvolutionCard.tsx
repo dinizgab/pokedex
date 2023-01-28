@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BackgroundTypeColours } from "../types/TypeColoursInterfaces";
 
 interface EvolutionCardProps {
   pokemonEvolution: string;
-  evolutionChainSize: number
+  evolutionChainSize: number;
 }
 
 export default function EvolutionCard(props: EvolutionCardProps) {
@@ -15,6 +15,8 @@ export default function EvolutionCard(props: EvolutionCardProps) {
     sprite: "",
     type: "",
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(props.pokemonEvolution).then(({ data }) => {
@@ -28,7 +30,12 @@ export default function EvolutionCard(props: EvolutionCardProps) {
   }, []);
 
   return (
-    <Link className={`${props.evolutionChainSize > 3 ? "w-[11rem] lg:w-1/5" : "w-1/3"} m-3 rounded-full`} to={`/pokemon/${evolutionInfos.id}`}>
+    <button
+      onClick={() => navigate(`/pokemon/${evolutionInfos.id}`)}
+      className={`${
+        props.evolutionChainSize > 3 ? "w-[11rem] lg:w-1/5" : "w-1/3"
+      } m-3 rounded-full`}
+    >
       <div
         className={`lg:p-6 rounded-full ${
           BackgroundTypeColours[
@@ -36,12 +43,12 @@ export default function EvolutionCard(props: EvolutionCardProps) {
           ]
         }`}
       >
-        <img src={evolutionInfos.sprite} alt={evolutionInfos.name}/>
+        <img src={evolutionInfos.sprite} alt={evolutionInfos.name} />
       </div>
       <h1 className="mt-0 lg:mt-[.2rem] text-center text-[1rem] lg:text-xl font-poppins font-semibold tracking-wider">
-        #{evolutionInfos.id} {" "}
+        #{evolutionInfos.id}{" "}
         {evolutionInfos.name.replace(/^\w/, (c) => c.toUpperCase())}
       </h1>
-    </Link>
+    </button>
   );
 }

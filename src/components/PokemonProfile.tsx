@@ -1,6 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, Outlet, useOutletContext } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  Outlet,
+  useNavigate,
+  useOutletContext,
+} from "react-router-dom";
 import { Pokemon } from "../types/Pokemon";
 import {
   BackgroundTypeColours,
@@ -23,8 +29,9 @@ export default function PokemonProfile(props: PokemonProfileProps) {
     animatedSprite: "",
     stats: [],
   });
+  const navigate = useNavigate();
 
-  const getPokemon = () => {
+  useEffect(() => {
     const fetchPokemon: Pokemon = {
       id: 0,
       name: "",
@@ -57,27 +64,23 @@ export default function PokemonProfile(props: PokemonProfileProps) {
           (fetchPokemon.animatedSprite =
             data.sprites.versions["generation-v"][
               "black-white"
-            ].animated.front_default);
-
-        fetchPokemon.stats = data.stats.map(
-          (stat: { stat: { name: string }; base_stat: number }) => {
-            return {
-              statName: stat.stat.name,
-              statValue: stat.base_stat,
-            };
-          }
-        );
+            ].animated.front_default),
+          (fetchPokemon.stats = data.stats.map(
+            (stat: { stat: { name: string }; base_stat: number }) => {
+              return {
+                statName: stat.stat.name,
+                statValue: stat.base_stat,
+              };
+            }
+          ));
+        console.log(123123);
 
         setPokemon(fetchPokemon);
       });
-  };
-
-  useEffect(() => {
-    getPokemon();
-  }, []);
+  }, pokemon);
 
   return (
-    <section className="flex p-12 bg-[#F0EFEE] lg:p-32">
+    <section className="h-[90%] flex p-12 bg-[#F0EFEE] lg:p-32">
       <div className="flex flex-col mx-auto w-full lg:w-2/3 lg:flex-row">
         <div
           className={`rounded-t-xl p-10 ${
@@ -112,11 +115,19 @@ export default function PokemonProfile(props: PokemonProfileProps) {
         </div>
         <div className="w-full bg-[#FEFCFE]/70 rounded-b-xl shadow-lg lg:w-1/2 lg:rounded-none lg:rounded-r-xl">
           <div className="py-4 lg:py-8 flex items-center justify-around font-poppins lg:text-xl font-semibold flex-wrap">
-            <Link to={`/pokemon/${props.pokemonId}`}>Biography</Link>
-            <Link to={`/pokemon/${props.pokemonId}/stats`}>Stats</Link>
-            <Link to={`/pokemon/${props.pokemonId}/evolutions`}>
+            <button onClick={() => navigate(`/pokemon/${props.pokemonId}`)}>
+              Biography
+            </button>
+            <button
+              onClick={() => navigate(`/pokemon/${props.pokemonId}/stats`)}
+            >
+              Stats
+            </button>
+            <button
+              onClick={() => navigate(`/pokemon/${props.pokemonId}/evolutions`)}
+            >
               Evolutions
-            </Link>
+            </button>
           </div>
           <Outlet
             context={{
