@@ -59,7 +59,7 @@ export function Biography() {
         <div className="text-center font-bold md:text-2xl text-[#474949] mx-auto w-2/3 mt-3">
           Pokemon Data
         </div>
-        <div className=" text-[#6b6d6e] text-center mx-auto w-full md:w-2/3">
+        <div className=" text-[#6b6d6e] text-center my-4 mx-auto w-full md:w-2/3">
           {pokemonBiography}
         </div>
 

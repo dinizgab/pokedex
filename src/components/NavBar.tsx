@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Search from "./Search";
+import { ArrowCircleLeft } from "phosphor-react";
 
 interface NavBarProps {
   isProfile: boolean;
@@ -8,13 +9,21 @@ interface NavBarProps {
 export default function NavBar(props: NavBarProps) {
   return (
     <header
-      className={`w-full p-12 py-8 bg-[#E2330C] flex flex-col items-center ${
-        props.isProfile ? "justify-center" : "justify-between"
-      } sm:flex-row`}
+      className={`w-full p-12 py-8 bg-[#E2330C] flex flex-col items-center justify-around md:flex-row`}
     >
-      <Link to="/">
-        <h1 className="text-white text-2xl md:text-3xl">Pokedex</h1>
+      <Link to="/" className="text-white text-2xl md:text-3xl">
+        Pokedex
       </Link>
+
+      {props.isProfile ? (
+        <Link className="text-white text-xl flex items-center " to="/">
+          <ArrowCircleLeft size={32} className="mr-2"/>
+          Go back
+        </Link>
+      ) : (
+        <></>
+      )}
+
       {props.isProfile ? <></> : <Search />}
     </header>
   );

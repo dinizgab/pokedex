@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PokemonPage from "./routes/PokemonPage";
 import Root from "./routes/Root";
 import Home from "./routes/Home";
-import { Biography } from "./components/Biography";
+import { Biography } from "./components/BiographyCard";
 import Stats from "./components/Stats";
 import Evolutions from "./components/Evolutions";
 

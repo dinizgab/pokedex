@@ -61,7 +61,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
   }, [props.pokemonId]);
 
   return (
-      <div className="flex flex-wrap m-auto w-3/4 py-10">
+      <div className="flex flex-wrap m-auto w-3/4 py-[4.95rem]">
         <div
           className={`rounded-t-xl p-10 ${
             BackgroundTypeColours[
