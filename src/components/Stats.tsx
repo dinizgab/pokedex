@@ -42,7 +42,7 @@ export default function Stats() {
       <div className="h-1/2 flex flex-wrap p-4">
         {stats!.map((stat, index) => ( 
           <div
-            className="grid grid-cols-4 lg:px-16 font-poppins text-[#6b6d6e] w-full"
+            className="grid grid-cols-4 lg:px-16 font-poppins text-[#6b6d6e] w-full m-2"
             key={stat.statName}
           >
             <div className="flex items-center">

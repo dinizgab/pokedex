@@ -84,7 +84,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
             #{pokemon.id}
           </span>
           <span
-            className={`absolute text-[2rem] lg:text-[5rem] left-4 top-8 lg:top-8 z-10 font-poppins font-bold ${
+            className={`absolute text-[2rem] md:text-[4rem] lg:text-[5rem] left-4 top-8 lg:top-8 z-10 font-poppins font-bold ${
               TextDarkTypeColours[
                 pokemon.types[0] as keyof typeof TextDarkTypeColours
               ]
