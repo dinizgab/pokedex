@@ -22,7 +22,6 @@
     - React Router;
 
 # Todo list
-- Responsivity for the Profile Page;
 - Redirect to the pokemon evolution when you click on its photo at evolution page;
 - Search a pokemon (With a live search)
 
