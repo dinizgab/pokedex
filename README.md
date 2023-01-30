@@ -22,7 +22,6 @@
     - React Router;
 
 # Todo list
-- Redirect to the pokemon evolution when you click on its photo at evolution page;
 - Search a pokemon (With a live search)
 
 # Installation and Deployment
