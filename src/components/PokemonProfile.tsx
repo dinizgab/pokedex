@@ -94,7 +94,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
           </span>
         </div>
         <div className=" bg-[#FEFCFE]/70 rounded-b-xl shadow-lg lg:rounded-none lg:rounded-r-xl w-full lg:w-1/2">
-          <div className="py-6 flex items-center justify-around font-poppins text-sm md:text-xl font-semibold flex-wrap">
+          <div className="py-4 lg:py-6 flex items-center justify-around font-poppins text-sm md:text-xl font-semibold flex-wrap">
             <button onClick={() => navigate(`/pokemon/${props.pokemonId}`)}>
               Biography
             </button>

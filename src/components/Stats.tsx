@@ -35,14 +35,14 @@ export default function Stats() {
     : null;
 
   return (
-    <div className="h-full grid grid-rows-stats-info">
+    <div className=" flex flex-col">
       <h1 className="flex justify-center items-center font-semibold text-2xl">
         Base stats
       </h1>
-      <div className="h-1/2 grid grid-rows-7">
-        {stats!.map((stat, index) => (
+      <div className="h-1/2 flex flex-wrap p-4">
+        {stats!.map((stat, index) => ( 
           <div
-            className="grid grid-cols-4 px-16 font-poppins text-[#6b6d6e]"
+            className="grid grid-cols-4 lg:px-16 font-poppins text-[#6b6d6e] w-full"
             key={stat.statName}
           >
             <div className="flex items-center">
@@ -51,10 +51,13 @@ export default function Stats() {
                 .replace(/special/g, "sp.")
                 .replace(/^\w/, (c) => c.toUpperCase())}
             </div>
+
             <div className="flex items-center justify-self-center">{stat.statValue}</div>
+
             <div className="flex items-center">
               <StatPercentage typeColor={types[0]} statValue={stat.statValue} maxStat={maxStats[index].statValue}/>
             </div>
+
             <div className="flex items-center justify-self-center">
               {maxStats[index].statValue}
             </div>
