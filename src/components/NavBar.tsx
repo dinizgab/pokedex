@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Search from "./Search";
 import { ArrowCircleLeft } from "phosphor-react";
 
 interface NavBarProps {
@@ -23,8 +22,6 @@ export default function NavBar(props: NavBarProps) {
       ) : (
         <></>
       )}
-
-      {props.isProfile ? <></> : <Search />}
     </header>
   );
 }

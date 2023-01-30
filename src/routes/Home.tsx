@@ -35,9 +35,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="grid grid-rows-pokemon-page">
+    <div>
       <NavBar isProfile={false} />
-      <section className="w-full grid grid-cols-1 gap-y-12 p-12 justify-items-center bg-[#F0EFEE] md:grid-cols-2 md:gap-x-16 lg:grid-cols-3">
+      <section className="w-full flex flex-wrap justify-center gap-y-12 p-8 justify-items-center bg-[#F0EFEE] gap-x-16 ">
         {pokemons.map((pokemon) => (
           <PokemonCard
             key={pokemon.id}

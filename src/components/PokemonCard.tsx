@@ -15,7 +15,7 @@ interface PokemonCardProps {
 
 export default function PokemonCard(props: PokemonCardProps) {
   return (
-    <Link className="w-full" to={`pokemon/${props.id}`}>
+    <Link className="w-[30%]" to={`pokemon/${props.id}`}>
       <div
         className={`relative ${
           BackgroundTypeColours[
