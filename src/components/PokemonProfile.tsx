@@ -1,12 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {
-  Link,
-  Navigate,
-  Outlet,
-  useNavigate,
-  useOutletContext,
-} from "react-router-dom";
+import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
 import { Pokemon } from "../types/Pokemon";
 import {
   BackgroundTypeColours,
@@ -18,6 +12,8 @@ interface PokemonProfileProps {
 }
 
 export default function PokemonProfile(props: PokemonProfileProps) {
+  const navigate = useNavigate();
+
   const [pokemon, setPokemon] = useState<Pokemon>({
     id: 0,
     name: "",
@@ -29,65 +25,49 @@ export default function PokemonProfile(props: PokemonProfileProps) {
     animatedSprite: "",
     stats: [],
   });
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchPokemon: Pokemon = {
-      id: 0,
-      name: "",
-      sprite: "",
-      types: [],
-      height: 0,
-      weight: 0,
-      abilities: [],
-      animatedSprite: "",
-      stats: [],
-    };
-
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${props.pokemonId}/`)
       .then(({ data }) => {
-        (fetchPokemon.id = data.id),
-          (fetchPokemon.name = data.name),
-          (fetchPokemon.sprite =
-            data.sprites.other["official-artwork"].front_default),
-          (fetchPokemon.types = data.types.map(
+        const fetchPokemon: Pokemon = {
+          id: data.id,
+          name: data.name,
+          sprite: data.sprites.other["official-artwork"].front_default,
+          types: data.types.map(
             (obj: { type: { name: string } }) => obj.type.name
-          )),
-          (fetchPokemon.height = data.height),
-          (fetchPokemon.weight = data.weight),
-          (fetchPokemon.abilities = data.abilities.map(
+          ),
+          height: data.height,
+          weight: data.weight,
+          abilities: data.abilities.map(
             (obj: { ability: { name: string }; slot: number }) => {
               return { abilityName: obj.ability.name, abilitySlot: obj.slot };
             }
-          )),
-          (fetchPokemon.animatedSprite =
-            data.sprites.versions["generation-v"][
-              "black-white"
-            ].animated.front_default),
-          (fetchPokemon.stats = data.stats.map(
+          ),
+          animatedSprite:
+            data.sprites.versions["generation-v"]["black-white"].animated
+              .front_default,
+          stats: data.stats.map(
             (stat: { stat: { name: string }; base_stat: number }) => {
               return {
                 statName: stat.stat.name,
                 statValue: stat.base_stat,
               };
             }
-          ));
-        console.log(123123);
-
+          ),
+        };
         setPokemon(fetchPokemon);
       });
-  }, pokemon);
+  }, [props.pokemonId]);
 
   return (
-    <section className="h-[90%] flex p-12 bg-[#F0EFEE] lg:p-32">
-      <div className="flex flex-col mx-auto w-full lg:w-2/3 lg:flex-row">
+      <div className="flex flex-wrap m-auto w-2/3">
         <div
           className={`rounded-t-xl p-10 ${
             BackgroundTypeColours[
               pokemon.types[0] as keyof typeof BackgroundTypeColours
             ]
-          } w-full relative flex justify-start z-0 lg:shadow-lg lg:w-1/2 lg:rounded-l-xl lg:rounded-none`}
+          } relative flex z-0 lg:shadow-lg lg:rounded-l-xl lg:rounded-none`}
         >
           <img
             className="z-20 w-full"
@@ -113,7 +93,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
             {pokemon.name.replace(/^\w/, (c) => c.toUpperCase())}
           </span>
         </div>
-        <div className="w-full bg-[#FEFCFE]/70 rounded-b-xl shadow-lg lg:w-1/2 lg:rounded-none lg:rounded-r-xl">
+        <div className=" bg-[#FEFCFE]/70 rounded-b-xl shadow-lg lg:rounded-none lg:rounded-r-xl">
           <div className="py-4 lg:py-8 flex items-center justify-around font-poppins lg:text-xl font-semibold flex-wrap">
             <button onClick={() => navigate(`/pokemon/${props.pokemonId}`)}>
               Biography
@@ -143,7 +123,6 @@ export default function PokemonProfile(props: PokemonProfileProps) {
           />
         </div>
       </div>
-    </section>
   );
 }
 

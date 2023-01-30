@@ -8,7 +8,7 @@ interface NavBarProps {
 export default function NavBar(props: NavBarProps) {
   return (
     <header
-      className={` w-full h-[10%] p-12 py-8 bg-[#E2330C] flex flex-col items-center ${
+      className={`w-full p-12 py-8 bg-[#E2330C] flex flex-col items-center ${
         props.isProfile ? "justify-center" : "justify-between"
       } sm:flex-row`}
     >

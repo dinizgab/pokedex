@@ -48,18 +48,19 @@ export function Biography() {
   });
 
   return (
-    <div className="grid w-full px-6 pb-3">
+    <div className="flex flex-col items-center px-6 pb-3">
       <img
         src={animatedSprite}
         alt={`${name} gif`}
         className="w-1/4 h-full justify-self-center"
       ></img>
 
-      <div className="w-full md:px-16 font-poppins">
+      <div className="font-poppins">
         <h1 className="text-center font-bold md:text-2xl text-[#474949]">Pokemon Data</h1>
         <p className="md:my-0 text-[#6b6d6e] text-start text-sm md:text-base">
           {pokemonBiography}
         </p>
+
         <div className="text-[#6b6d6e] w-full text-sm md:text-base">
           {Object.keys(infosMapTemplate).map((key) => (
             <div key={key} className="my-2 flex justify-between">
