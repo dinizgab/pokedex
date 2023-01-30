@@ -93,7 +93,7 @@ export default function PokemonProfile(props: PokemonProfileProps) {
             {pokemon.name.replace(/^\w/, (c) => c.toUpperCase())}
           </span>
         </div>
-        <div className=" bg-[#FEFCFE]/70 rounded-b-xl shadow-lg lg:rounded-none lg:rounded-r-xl w-full lg:w-1/2">
+        <div className=" bg-[#FAFCFE]/90 rounded-b-xl shadow-lg lg:rounded-none lg:rounded-r-xl w-full lg:w-1/2">
           <div className="py-4 lg:py-6 flex items-center justify-around font-poppins text-sm md:text-xl font-semibold flex-wrap">
             <button onClick={() => navigate(`/pokemon/${props.pokemonId}`)}>
               Biography
