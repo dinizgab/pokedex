@@ -21,9 +21,6 @@
     - TailwindCSS;
     - React Router;
 
-# Todo list
-- Search a pokemon (With a live search)
-
 # Installation and Deployment
 You can access the page with this link:
 - https://pokedex-dinizgab.vercel.app/
